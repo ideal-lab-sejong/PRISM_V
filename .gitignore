@@ -1,0 +1,15 @@
+# Local datasets and vendor archives
+/data/*
+!/data/README.md
+/data1/
+/VisA_20220922.tar
+/mvtec_anomaly_detection.tar.xz
+
+# Generated experiment outputs and logs
+/results/
+*.log
+
+# Python caches
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
