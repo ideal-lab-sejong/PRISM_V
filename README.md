@@ -1,4 +1,6 @@
-# How Far Can Anomaly Detection Go Before Learning? Random Neural Features from Tables to Pixels - PRISM-V
+# How Far Can Anomaly Detection Go Before Learning? Random Neural Features from Tables to Pixels
+
+**PRISM-V**
 
 ![Architecture](./images/PRISM_Framework.png)
 
