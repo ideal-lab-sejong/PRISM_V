@@ -4,7 +4,7 @@ How Far Can Anomaly Detection
 Go Before Learning?
 Random Neural Features from Tables to Pixels
 
-![Architecture](./images/prism_v_framework.png)
+![Architecture](./images/prism_framework.png)
 
 Visual part
 
