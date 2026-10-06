@@ -1,4 +1,4 @@
-# PRISM-V — reproducibility package
+# PRISM-V — official implementation
 
 Code to reproduce the PRISM-V results of the paper: the main experiment,
 the component analysis and the ablation studies.
