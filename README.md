@@ -1,6 +1,6 @@
 # How Far Can Anomaly Detection Go Before Learning? Random Neural Features from Tables to Pixels
 
-**PRISM-V**
+**PRISM FrameWork**
 
 ![Architecture](./images/PRISM_Framework.png)
 
@@ -11,7 +11,7 @@ paper:
 
 ## Introduction
 
-This repository contains the implementation of PRISM-V, the visual anomaly detection module of PRISM. PRISM-V is designed to investigate how effectively a convolutional neural network with randomly initialized weights can perform both image-level anomaly detection and pixel-level localization of anomalous regions.
+This repository contains the implementation of **PRISM-V**, the visual anomaly detection module of PRISM. PRISM-V is designed to investigate how effectively a convolutional neural network with randomly initialized weights can perform both image-level anomaly detection and pixel-level localization of anomalous regions.
 
 
 ## Data
