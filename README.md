@@ -4,6 +4,9 @@ How Far Can Anomaly Detection
 Go Before Learning?
 Random Neural Features from Tables to Pixels
 
+Visual part
+
+Hyojun Yi, Geunyoung Kim, Hogeon Seo, and Seunghyoung Ryu
 
 ## 1. Data
 
