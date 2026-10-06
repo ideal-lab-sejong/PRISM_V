@@ -8,6 +8,10 @@ Visual part
 
 Hyojun Yi, Geunyoung Kim, Hogeon Seo, and Seunghyoung Ryu
 
+## Introduction
+
+PRISM-V is
+
 ## 1. Data
 
 Datasets and results are not shipped — you create them: `data/mvtec`
