@@ -4,7 +4,7 @@
 
 ![Architecture](./images/PRISM_Framework.png)
 
-Authors: Hyojun Yi, Geunyoung Kim, Hogeon Seo, and Seunghyoung Ryu
+Authors: *Hyojun Yi, Geunyoung Kim, Hogeon Seo, and Seunghyoung Ryu*
 
 paper: 
 
@@ -93,6 +93,15 @@ prism_v_main_repo/
      |--- visa/
      \--- comparison.md            # Evaluation report for both datasets
 ```
+
+
+## Results
+
+![Architecture](./images/PRISM_V_exp.png)
+
+Image-level anomaly detection and pixel-level localization performance on MVTec AD and VisA. All values are reported in %. PRR denotes the mean ratio of each available score to the best-performing value for the corresponding category and metric. PRISM-V demonstrates that even a compact neural network with randomly initialized weights can achieve meaningful anomaly localization performance.
+
+## Citation
 
 
 
