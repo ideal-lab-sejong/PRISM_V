@@ -16,29 +16,15 @@ This repository contains the implementation of **PRISM-V**, the visual anomaly d
 
 ## Data
 
-Download and prepare each dataset as follows.
-
 ### MVTec AD
 
-Download `mvtec_anomaly_detection.tar.xz` from the [official MVTec AD website](https://www.mvtec.com/company/research/datasets/mvtec-ad), then run:
-
-```bash
-python datasets/dataset_prepare_mvtec.py --tar mvtec_anomaly_detection.tar.xz \
-    --out data/mvtec
-```
+Download `mvtec_anomaly_detection.tar.xz` from the [official MVTec AD website](https://www.mvtec.com/company/research/datasets/mvtec-ad) and place it in the project root. The `bash run mvtec ad` command below prepares the dataset automatically if needed.
 
 ### VisA
 
-Download and prepare VisA by running:
+The `bash run visa` command below automatically downloads and prepares VisA if needed.
 
-```bash
-curl -L -O https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar
-
-python datasets/dataset_prepare_visa.py --tar VisA_20220922.tar \
-    --extract-dir /tmp/visa_extract --out data/visa
-```
-
-After preparation, the datasets will be available at:
+Prepared datasets are stored in the following directories:
 
 ```text
 data/
@@ -49,36 +35,65 @@ data/
 
 ## Running the experiments
 
-None of the drivers below download or convert anything, 
-so `data/mvtec` and `data/visa` must already exist; a
-missing or unprepared root aborts in `detect_categories` before any
-computation starts.
+Run the following commands from the project root.
 
+### Fitting
+
+Run the MVTec AD experiment:
 
 ```bash
-bash scripts/run_main.sh     mvtec    
-bash scripts/run_main.sh     visa
+bash run mvtec ad
 ```
 
+Run the VisA experiment:
 
-
-## Repository layout
-
+```bash
+bash run visa
 ```
-models/      prism_v.py (the PRISM-V encoder), padim_head.py (PaDiM
-             Gaussian head)
-evaluation/  metrics.py (AUROC/AUPRC, AUPRO)
-datasets/    loader.py — one loader for both datasets;
-             dataset_prepare_mvtec.py and dataset_prepare_visa.py convert
-             the official releases into the layout it reads
-scripts/     run_prism_v.py (the single experiment engine; defaults = the
-             adopted main config), run_main.sh (main experiment),
-             run_ablation.sh (all ablations), run_all.sh (both, in order),
-             aggregate_ablation.py (all comparison tables),
-             compute_g.py (G-metric sidecar)
-data/        create it — datasets are not distributed
-results/     created by the run scripts: main/ and ablation/<name>/
+
+### Evaluation
+
+After fitting both datasets, evaluate MVTec AD and VisA together with one command:
+
+```bash
+bash run evaluation
 ```
+
+The evaluation results can also be reviewed in [results/comparison.md](results/comparison.md).
+
+
+## Project structure
+
+```text
+prism_v_main_repo/
+|--- README.md
+|--- requirements.txt
+|--- run                           # Experiment and evaluation entry point
+|--- datasets/
+|    |--- loader.py
+|    |--- dataset_prepare_mvtec.py
+|    \--- dataset_prepare_visa.py
+|--- models/
+|    |--- prism_v.py                # PRISM-V encoder
+|    \--- prism_head.py             # Gaussian anomaly detection head
+|--- scripts/
+|    |--- cli.py
+|    |--- main_spec.py
+|    |--- train.py
+|    \--- experiment_state.py
+|--- evaluation/
+|    |--- evaluate.py
+|    |--- metrics.py
+|    \--- score_io.py
+|--- data/                         # Prepared datasets
+|    |--- mvtec/
+|    \--- visa/
+\--- results/                      # Experiment outputs
+     |--- mvtec/
+     |--- visa/
+     \--- comparison.md            # Evaluation report for both datasets
+```
+
 
 
 ## Acknoledgement
