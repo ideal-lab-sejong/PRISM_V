@@ -1,63 +1,48 @@
 # How Far Can Anomaly Detection Go Before Learning? Random Neural Features from Tables to Pixels
-Authors: *Hyojun Yi, Geunyoung Kim, Hogeon Seo, and Seunghyoung Ryu*
+
+**PRISM FrameWork**
+
+![Architecture](./images/PRISM_Framework.png)
+
+Authors: Hyojun Yi, Geunyoung Kim, Hogeon Seo, and Seunghyoung Ryu
 
 paper: 
 
 
-## PRISM FrameWork
-
-![Architecture](./images/PRISM_Framework.png)
-
-
 ## Introduction
 
-This repository contains the implementation of **PRISM-V**, the visual anomaly detection module of PRISM. PRISM-V is designed to investigate how effectively a convolutional neural network with randomly initialized weights can perform both image-level anomaly detection and pixel-level localization of anomalous regions.
+This repository contains the implementation of **PRISM-T**, the tabular anomaly detection module of PRISM. PRISM-T investigates how effectively a neural network with randomly initialized weights can detect anomalies in tabular data.
 
 
 ## Data
 
-Download and prepare each dataset as follows.
+Download and prepare the dataset as follows.
 
-### MVTec AD
+### ADBench
 
-Download `mvtec_anomaly_detection.tar.xz` from the [official MVTec AD website](https://www.mvtec.com/company/research/datasets/mvtec-ad), then run:
-
-```bash
-python datasets/dataset_prepare_mvtec.py --tar mvtec_anomaly_detection.tar.xz \
-    --out data/mvtec
-```
-
-### VisA
-
-Download and prepare VisA by running:
+Download the 47 Classical datasets from [ADBench](https://github.com/Minqi824/ADBench) by running:
 
 ```bash
-curl -L -O https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar
-
-python datasets/dataset_prepare_visa.py --tar VisA_20220922.tar \
-    --extract-dir /tmp/visa_extract --out data/visa
+python datasets/download_data.py
 ```
 
 After preparation, the datasets will be available at:
 
 ```text
 data/
-├── mvtec/
-└── visa/
+└── Classical/
 ```
 
 
 ## Running the experiments
 
-None of the drivers below download or convert anything, 
-so `data/mvtec` and `data/visa` must already exist; a
-missing or unprepared root aborts in `detect_categories` before any
-computation starts.
+None of the drivers below download or convert anything,
+so `data/Classical` must already exist; a missing data
+root aborts before any computation starts.
 
 
 ```bash
-bash scripts/run_main.sh     mvtec    
-bash scripts/run_main.sh     visa
+python scripts/run_prism_t.py
 ```
 
 
@@ -65,25 +50,26 @@ bash scripts/run_main.sh     visa
 ## Repository layout
 
 ```
-models/      prism_v.py (the PRISM-V encoder), padim_head.py (PaDiM
-             Gaussian head)
-evaluation/  metrics.py (AUROC/AUPRC, AUPRO)
-datasets/    loader.py — one loader for both datasets;
-             dataset_prepare_mvtec.py and dataset_prepare_visa.py convert
-             the official releases into the layout it reads
-scripts/     run_prism_v.py (the single experiment engine; defaults = the
-             adopted main config), run_main.sh (main experiment),
-             run_ablation.sh (all ablations), run_all.sh (both, in order),
-             aggregate_ablation.py (all comparison tables),
-             compute_g.py (G-metric sidecar)
+models/      prism_t.py (the PRISM-T encoder), mahalanobis.py
+             (shrinkage Mahalanobis fit/score)
+evaluation/  metrics.py (AUROC/AUPRC)
+datasets/    loader.py (semi-supervised split + StandardScaler);
+             download_data.py fetches the 47 ADBench Classical
+             datasets into the layout it reads
+scripts/     run_prism_t.py (the single experiment engine; defaults = the
+             adopted main config)
 data/        create it — datasets are not distributed
-results/     created by the run scripts: main/ and ablation/<name>/
+results/     created by the run script
 ```
 
 
-## Acknoledgement
+## Acknowledgement
 
 This work was partially supported in part by the IITP (Institute of Information & Communications Technology Planning & Evaluation) - ICAN (ICT Challenge and Advanced Network of HRD) grant funded by the Korea government (Ministry of Science and ICT) (IITP-2026-RS-2024-00436528), and in part by the National Research Foundation of Korea(NRF) grant funded by the Korea government(MSIT) (RS-2024-00454514)
 
 
-## Citation
+## License / citation
+
+To be added upon publication. The 47 ADBench "Classical" datasets remain under
+their own licences; this package redistributes neither the datasets nor derived
+weights (there are none — nothing is trained).
