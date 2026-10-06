@@ -1,59 +1,49 @@
 # PRISM-V
 
-How Far Can Anomaly Detection
-Go Before Learning?
-Random Neural Features from Tables to Pixels
-
-![Architecture](./images/PRISM_Framework.png)
+**How Far Can Anomaly Detection Go Before Learning? Random Neural Features from Tables to Pixels**
 
 Authors: Hyojun Yi, Geunyoung Kim, Hogeon Seo, and Seunghyoung Ryu
 
-paper link: 
+paper: 
+
+![Architecture](./images/PRISM_Framework.png)
 
 
 ## Introduction
 
 This repository contains the implementation of PRISM-V, the visual anomaly detection module of PRISM. PRISM-V is designed to investigate how effectively a convolutional neural network with randomly initialized weights can perform both image-level anomaly detection and pixel-level localization of anomalous regions.
 
+
 ## Data
 
-Datasets and results are not shipped — you create them: `data/mvtec`, `data/visa` and `results/` .
+Download and prepare each dataset as follows.
 
-Each benchmark ships in its own vendor format, and a `datasets/` script
-converts it into the one layout both runs read:
+### MVTec AD
 
-```
-<root>/images/train/<category>/good/<stem>.png     # normal training images
-<root>/images/test/<category>/<defect>/<stem>.png  # test images ("good" = normal)
-<root>/masks/test/<category>/<defect>/<stem>_mask.png
-```
-
-
-
-###  MVTec AD
-
-No download command for this one: the official page
-(<https://www.mvtec.com/company/research/datasets/mvtec-ad>) serves
-`mvtec_anomaly_detection.tar.xz` only behind a licence-acceptance form, and
-the link it issues is not a fixed URL — so this step is a browser step.
-Accept the licence (CC BY-NC-SA 4.0: research / non-commercial,
-attribution, share-alike; cite Bergmann et al., CVPR 2019) and download the
-archive, then convert it:
+Download `mvtec_anomaly_detection.tar.xz` from the [official MVTec AD website](https://www.mvtec.com/company/research/datasets/mvtec-ad), then run:
 
 ```bash
 python datasets/dataset_prepare_mvtec.py --tar mvtec_anomaly_detection.tar.xz \
     --out data/mvtec
 ```
 
+### VisA
 
-### VisA 
-
-VisA needs a conversion step, because its train/test split exists only as CSV rows (`split_csv/1cls.csv`) 
+Download and prepare VisA by running:
 
 ```bash
 curl -L -O https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar
+
 python datasets/dataset_prepare_visa.py --tar VisA_20220922.tar \
     --extract-dir /tmp/visa_extract --out data/visa
+```
+
+After preparation, the datasets will be available at:
+
+```text
+data/
+├── mvtec/
+└── visa/
 ```
 
 
