@@ -152,3 +152,8 @@ scripts/     run_prism_v.py (the single experiment engine; defaults = the
 data/        create it — datasets are not distributed
 results/     created by the run scripts: main/ and ablation/<name>/
 ```
+
+
+## 5. Acknoledgement
+
+This work was partially supported in part by the IITP (Institute of Information & Communications Technology Planning & Evaluation) - ICAN (ICT Challenge and Advanced Network of HRD) grant funded by the Korea government (Ministry of Science and ICT) (IITP-2026-RS-2024-00436528), and in part by the National Research Foundation of Korea(NRF) grant funded by the Korea government(MSIT) (RS-2024-00454514)
