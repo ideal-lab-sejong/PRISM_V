@@ -1,12 +1,12 @@
 # How Far Can Anomaly Detection Go Before Learning? Random Neural Features from Tables to Pixels
-
-**PRISM FrameWork**
-
-![Architecture](./images/PRISM_Framework.png)
-
-Authors: Hyojun Yi, Geunyoung Kim, Hogeon Seo, and Seunghyoung Ryu
+Authors: *Hyojun Yi, Geunyoung Kim, Hogeon Seo, and Seunghyoung Ryu*
 
 paper: 
+
+
+## PRISM FrameWork
+
+![Architecture](./images/PRISM_Framework.png)
 
 
 ## Introduction
