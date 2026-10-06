@@ -47,7 +47,7 @@ data/
 ```
 
 
-## 2. Running the experiments
+## Running the experiments
 
 None of the drivers below download or convert anything, 
 so `data/mvtec` and `data/visa` must already exist; a
