@@ -1,7 +1,8 @@
-# PRISM-V — official implementation
+# PRISM-V
 
-Code to reproduce the PRISM-V results of the paper: the main experiment,
-the component analysis and the ablation studies.
+How Far Can Anomaly Detection
+Go Before Learning?
+Random Neural Features from Tables to Pixels
 
 
 ## 1. Data
