@@ -11,8 +11,8 @@ paper: How Far Can Untrained Neural Networks Go in Anomaly Detection? From Table
 
 ## Introduction
 
-This repository contains the implementation of **PRISM-V**, the visual anomaly detection module of PRISM. PRISM-V investigates the effectiveness of untrained convolutional neural representations for image-level anomaly detection and pixel-level anomaly localization. 
-By combining randomly initialized neural features with statistical anomaly scoring, PRISM-V performs anomaly detection without neural network weight optimization.
+This repository provides the implementation of **PRISM-V**, a visual anomaly detection model based on fully untrained neural networks. 
+PRISM-V combines multi-scale random convolutional features with location-wise Mahalanobis scoring to perform image-level anomaly detection and pixel-level anomaly localization without pretraining or neural weight optimization.
 
 ## Data
 
