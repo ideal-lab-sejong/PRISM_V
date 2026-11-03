@@ -1,4 +1,4 @@
-# How Far Can Anomaly Detection Go Before Learning? Random Neural Features from Tables to Pixels
+# How Far Can Untrained Neural Networks Go in Anomaly Detection? From Tables to Pixels
 
 **PRISM Framework**
 
@@ -6,7 +6,7 @@
 
 Authors: *Hyojun Yi, Geunyoung Kim, Hogeon Seo, and Seunghyoung Ryu*
 
-paper: How Far Can Anomaly Detection Go Before Learning? Random Neural Features from Tables to Pixels
+paper: How Far Can Untrained Neural Networks Go in Anomaly Detection? From Tables to Pixels
 
 
 ## Introduction
