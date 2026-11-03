@@ -97,7 +97,7 @@ prism_v_main_repo/
 
 ## Results
 
-![Architecture](./images/PRISM_V_EXP_v2.png)
+![Architecture](./images/PRISM_V_EXP_v2.PNG)
 
 Image-level anomaly detection and pixel-level localization performance on MVTec AD and VisA. All values are reported in %. PRR denotes the mean ratio of each available score to the best-performing value for the corresponding category and metric. PRISM-V demonstrates that even a compact neural network with randomly initialized weights can achieve meaningful anomaly localization performance.
 
