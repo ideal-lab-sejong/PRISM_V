@@ -57,7 +57,7 @@ def aupro(masks: np.ndarray, scores: np.ndarray, fpr_limit: float = 0.3) -> floa
     for i, m in enumerate(masks):
         if m.max() == 0:
             continue
-        lbl, n = label(m)
+        lbl, n = label(m, structure=np.ones((3, 3), dtype=np.uint8))
         num_regions += n
         flat = lbl.ravel()
         areas = np.bincount(flat)
